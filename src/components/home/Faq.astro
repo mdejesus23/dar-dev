@@ -36,7 +36,7 @@ const faqs = [
 ];
 ---
 
-<section class="bg-medium-blue relative z-40 py-16 lg:py-24">
+<section class="bg-medium-blue relative z-60 py-16 lg:py-24">
   <div class="container mx-auto px-4 lg:px-8">
     <div
       class="relative grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16"
@@ -52,7 +52,7 @@ const faqs = [
         </div>
 
         <h2
-          class="font-headline mb-4 text-4xl leading-tight font-bold text-white lg:text-5xl"
+          class="font-headline mb-4 text-3xl leading-tight font-bold text-white lg:text-5xl"
         >
           Frequently Asked Questions
         </h2>
@@ -71,7 +71,7 @@ const faqs = [
                 aria-expanded="false"
                 aria-controls={`faq-answer-${faq.id}`}
               >
-                <span class="font-headline text-text text-3xl font-bold md:hidden md:text-4xl lg:text-5xl">
+                <span class="font-headline text-text text-2xl font-bold md:hidden md:text-4xl lg:text-5xl">
                   {faq.id}
                 </span>
 
@@ -80,7 +80,7 @@ const faqs = [
                     <span class="font-headline text-text hidden text-3xl font-bold md:block md:text-4xl lg:text-5xl">
                       {faq.id}
                     </span>
-                    <h3 class="text-lg font-bold text-white lg:text-xl">
+                    <h3 class="text-base font-bold text-white lg:text-xl">
                       {faq.question}
                     </h3>
                   </div>
@@ -90,7 +90,7 @@ const faqs = [
                       alt="Toggle answer"
                       width={24}
                       height={24}
-                      class="h-6 w-6"
+                      class="h-3 w-3 md:h-4 md:w-4"
                     />
                   </div>
                 </div>
@@ -100,8 +100,8 @@ const faqs = [
                 class="faq-answer grid grid-rows-[0fr] transition-all duration-300 ease-in-out"
               >
                 <div class="overflow-hidden">
-                  <div class="mt-4 pl-12 md:pl-16 lg:pl-20">
-                    <p class="font-supporting text-base leading-relaxed text-white/90">
+                  <div class="mt34 p3-12 md:pl-16 lg:pl-20">
+                    <p class="font-supporting text-sm leading-relaxed text-white/90">
                       {faq.answer}
                     </p>
                   </div>
