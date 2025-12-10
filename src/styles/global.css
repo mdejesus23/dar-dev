@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* VARIABLES */
+:root {
+  /* Headlines (IBM Plex Sans SemiBold) */
+  --font-headline: 'IBM Plex Sans', sans-serif;
+  --font-headline-weight: 600;
+
+  /* Large Supporting Text (Questrial Regular) */
+  --font-supporting: 'Questrial', sans-serif;
+  --font-supporting-weight: 400;
+
+  /* Body Text (IBM Plex Sans Regular) */
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-body-weight: 400;
+
+  /* Accent Text (Space Mono Regular) */
+  --font-accent: 'Space Mono', monospace;
+  --font-accent-weight: 400;
+
+  /* Primary Brand Color */
+  --color-primary: #48b5e5; /* R72 G181 B229 — C62 M10 Y1 K0 */
+
+  /* Dark / Background / Surface */
+  --color-dark: #2c3947; /* R44 G57 B71 — C82 M68 Y51 K45 */
+
+  /* Deep Navy / Ultra Dark */
+  --color-deep: #1a1f2e; /* New color */
+
+  /* Dark Blue */
+  --color-dark-blue: #212a41;
+
+  /* Light Gray */
+  --color-gray: #e6e6e6; /* R230 G230 B230 — C9 M6 Y7 K0 */
+
+  /* Pure White */
+  --color-white: #ffffff; /* R255 G255 B255 */
+
+  /* Optional semantic roles */
+  --color-bg: var(--color-white);
+  --color-bg-alt: var(--color-gray);
+  --color-text: #1f212b;
+  --color-accent: var(--color-primary);
+}
+
+@theme {
+  --font-headline: var(--font-headline);
+  --font-supporting: var(--font-supporting);
+  --font-body: var(--font-body);
+  --font-accent: var(--font-accent);
+
+  /* Colors */
+  --color-primary: var(--color-primary);
+  --color-dark: var(--color-dark);
+  --color-deep: var(--color-deep); /* Added here */
+  --color-dark-blue: var(--color-dark-blue);
+  --color-gray: var(--color-gray);
+  --color-white: var(--color-white);
+
+  /* Semantic colors */
+  --color-bg: var(--color-bg);
+  --color-bg-alt: var(--color-bg-alt);
+  --color-text: var(--color-text);
+  --color-accent: var(--color-accent);
+}
+
+/* Base typography layer  */
+@layer base {
+  /* Default body text */
+  body {
+    font-family: var(--font-body);
+    font-weight: var(--font-body-weight);
+    line-height: 1.6;
+  }
+
+  /* Headlines (H1–H6) */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-headline);
+    font-weight: var(--font-headline-weight);
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  } /* text-4xl */
+  h2 {
+    font-size: 1.875rem;
+  } /* text-3xl */
+  h3 {
+    font-size: 1.5rem;
+  } /* text-2xl */
+  h4 {
+    font-size: 1.25rem;
+  } /* text-xl */
+  h5 {
+    font-size: 1.125rem;
+  } /* text-lg */
+  h6 {
+    font-size: 1rem;
+  } /* text-base */
+
+  /* Large supporting text ("lead") */
+  .lead {
+    font-family: var(--font-supporting);
+    font-weight: var(--font-supporting-weight);
+    font-size: 1.25rem;
+    line-height: 1.6;
+  }
+
+  /* Accent text */
+  .accent {
+    font-family: var(--font-accent);
+    font-weight: var(--font-accent-weight);
+  }
+
+  /* Make <strong> use headline weight */
+  strong {
+    font-weight: var(--font-headline-weight);
+  }
+}

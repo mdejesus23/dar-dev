@@ -1,0 +1,103 @@
+---
+import { getImage } from 'astro:assets';
+import { OG, SEO, SITE } from '@/data/constants';
+
+const defaultProps = {
+  meta: SITE.description,
+  structuredData: SEO.structuredData,
+};
+
+const {
+  title,
+  meta = defaultProps.meta,
+  structuredData = defaultProps.structuredData,
+} = Astro.props;
+
+const URL = `${Astro.site}`; // Set the website URL in astro.config.mjs
+const author = SITE.author;
+const canonical = Astro.url.href;
+// const basePath = Astro.url.pathname;
+const pageTitle = title || OG.title;
+const pageDescription = meta || OG.description;
+
+const socialImageRes = await getImage({
+  src: OG.image,
+  width: 1200,
+  height: 600,
+});
+
+const socialImage = Astro.url.origin + socialImageRes.src; // Get the full URL of the image (https://stackoverflow.com/a/9858694)
+---
+
+{
+  structuredData && (
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(structuredData)}
+    />
+  )
+}
+
+<!-- Define the character set, description, author, and viewport settings -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta content={meta} name="description" />
+<meta name="web_author" content={author} />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0"
+/>
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<link rel="canonical" href={canonical} />
+
+<!-- Facebook Meta Tags -->
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={URL} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={pageTitle} />
+<meta property="og:site_name" content={SITE.title} />
+<meta property="og:description" content={pageDescription} />
+<meta property="og:image" content={socialImage} />
+<meta content="1200" property="og:image:width" />
+<meta content="600" property="og:image:height" />
+<meta content="image/png" property="og:image:type" />
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:domain" content={URL} />
+<meta property="twitter:url" content={URL} />
+<meta name="twitter:title" content={pageTitle} />
+<meta name="twitter:description" content={pageDescription} />
+<meta name="twitter:image" content={socialImage} />
+
+<!-- Links to the webmanifest and sitemap for PWA  -->
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- Links for favicons -->
+<!-- Standard favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+
+<!-- PNG versions for modern browsers -->
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+
+<!-- Apple touch icon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Android icons -->
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/android-chrome-192x192.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="512x512"
+  href="/android-chrome-512x512.png"
+/>
+
+<!-- Set theme color -->
+<meta name="theme-color" content="#48b5e5" />

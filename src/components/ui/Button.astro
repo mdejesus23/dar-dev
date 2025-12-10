@@ -1,0 +1,102 @@
+---
+export interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  size?: 'sm' | 'md' | 'lg';
+  class?: string;
+  target?: string;
+  rel?: string;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  class: className = '',
+  target,
+  rel,
+  disabled = false,
+  type = 'button',
+  ariaLabel,
+  ...rest
+} = Astro.props;
+
+const baseStyles = [
+  'inline-flex items-center justify-center',
+  'font-headline font-bold',
+  'transition-colors duration-200',
+  'focus:outline-none',
+  'disabled:opacity-50 disabled:cursor-not-allowed',
+  'gap-[10px]',
+];
+
+const sizeStyles = {
+  sm:
+    variant === 'outline'
+      ? 'py-2 text-sm'
+      : 'px-4 py-2 text-xl min-w-[160px] min-h-[48px]',
+  md:
+    variant === 'outline'
+      ? 'py-2 text-base'
+      : 'px-[26px] py-[9px] min-w-[200px] min-h-[60px]',
+  lg:
+    variant === 'outline'
+      ? 'py-2 text-lg'
+      : 'px-8 py-3 text-lg min-w-[240px] min-h-[72px]',
+};
+
+const variantStyles = {
+  primary: ['bg-primary text-text', 'hover:opacity-90'].join(' '),
+  secondary: [
+    'bg-gradient-to-r from-purple-600 to-purple-700 text-white border-purple-600',
+    'hover:from-purple-700 hover:to-purple-800 hover:border-purple-700',
+    'active:from-purple-800 active:to-purple-900',
+    'focus:ring-purple-500',
+    'shadow-lg hover:shadow-xl',
+  ].join(' '),
+  outline: [
+    'bg-transparent text-primary border-b-2 border-primary',
+    'hover:text-white hover:border-white',
+    'transition-all duration-200',
+    'rounded-none',
+    'uppercase tracking-wide',
+  ].join(' '),
+};
+
+const classes = [
+  ...baseStyles,
+  sizeStyles[size],
+  variantStyles[variant],
+  className,
+].join(' ');
+
+const Element = href ? 'a' : 'button';
+---
+
+<Element
+  href={href}
+  class={classes}
+  target={target}
+  rel={target === '_blank' ? 'noopener noreferrer' : rel}
+  disabled={disabled}
+  type={!href ? type : undefined}
+  aria-label={ariaLabel}
+  role={!href ? 'button' : undefined}
+  {...rest}
+>
+  <slot />
+</Element>
+
+<style>
+  /* Ensure proper touch target size on mobile */
+  @media (max-width: 640px) {
+    a,
+    button {
+      min-height: 44px;
+      min-width: 44px;
+    }
+  }
+</style>
