@@ -4,8 +4,8 @@ import Rectangle from '@/images/shapes/rectangle-1.png';
 import DiagonalArrowWhite from '@/images/icons/diagonal-arrow-white.png';
 import DiagonalArrowAccent from '@/images/icons/diagonal-arrow-accent.png';
 import Button from '@/components/ui/Button.astro';
-import Header from '@/components/global/Header.astro';
 import Services from '@/components/home/Services.astro';
+import GradientOverlay from '@/components/ui/GradientOverlay.astro';
 
 // Background images
 import backgroundImage from '@/images/employees-working-together-side-view.jpg';
@@ -18,6 +18,8 @@ import AutomationIcon from '@/images/icons/automation.png';
 ---
 
 <section class="relative min-h-screen py-40">
+  <!-- Gradient Overlay -->
+  <GradientOverlay />
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     <Image

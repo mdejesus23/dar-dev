@@ -31,6 +31,9 @@
   /* Dark Blue */
   --color-dark-blue: #212a41;
 
+  /* Medium Blue */
+  --color-medium-blue: #326b89;
+
   /* Light Gray */
   --color-gray: #e6e6e6; /* R230 G230 B230 — C9 M6 Y7 K0 */
 
@@ -55,6 +58,7 @@
   --color-dark: var(--color-dark);
   --color-deep: var(--color-deep); /* Added here */
   --color-dark-blue: var(--color-dark-blue);
+  --color-medium-blue: var(--color-medium-blue);
   --color-gray: var(--color-gray);
   --color-white: var(--color-white);
 

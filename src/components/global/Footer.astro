@@ -1,0 +1,124 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../../images/dar-dev-logo.png';
+import verticalLine from '@/images/shapes/vertical-line.png';
+---
+
+<footer class="bg-dark px-8 py-16 text-white md:px-16 lg:px-8">
+  <div class="container mx-auto">
+    <div
+      class="grid w-full grid-cols-1 gap-10 md:grid-cols-4 md:gap-8 lg:gap-12"
+    >
+      <!-- Logo and Description -->
+      <div class="flex flex-col gap-6 md:col-span-1">
+        <div class="shrink">
+          <a href="/" class="block">
+            <Image
+              src={logo}
+              alt="dar.dev Logo"
+              class="h-10 w-auto"
+              width={200}
+              height={48}
+            />
+          </a>
+        </div>
+        <p
+          class="font-supporting font-supporting text-[0.95rem] leading-relaxed text-[#b8c5d6]"
+        >
+          Helping small and medium-sized businesses grow through tailored
+          software solutions.
+        </p>
+      </div>
+
+      <!-- Vertical Divider -->
+      <div class="hidden items-center justify-center md:col-span-1 md:flex">
+        <Image
+          src={verticalLine}
+          alt="Vertical Line"
+          class="h-40 w-auto opacity-30"
+          width={10}
+          height={128}
+        />
+      </div>
+
+      <!-- Company Links -->
+      <div class="flex flex-col md:col-span-1">
+        <h3 class="font-headline mb-6 text-sm font-bold tracking-wider">
+          COMPANY
+        </h3>
+        <ul class="flex flex-col gap-3">
+          <li>
+            <a
+              href="/about"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >About Us</a
+            >
+          </li>
+          <li>
+            <a
+              href="/industries"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >Industries</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >Contact</a
+            >
+          </li>
+          <li>
+            <a
+              href="/privacy"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >Privacy</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Services Links -->
+      <div class="flex flex-col md:col-span-1">
+        <h3 class="font-headline mb-6 text-sm font-bold tracking-wider">
+          SERVICES
+        </h3>
+        <ul class="flex flex-col gap-3">
+          <li>
+            <a
+              href="/services/turnkey-design"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >Turnkey Design</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/development"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >Development</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/hosting"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >Hosting</a
+            >
+          </li>
+          <li>
+            <a
+              href="/services/seo"
+              class="font-supporting text-[0.95rem] text-[#b8c5d6] transition-colors hover:text-white"
+              >SEO</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+<div
+  class="bg-deep flex h-16 items-center justify-center text-center text-sm text-[#b8c5d6]"
+>
+  © {new Date().getFullYear()} dar.dev, Inc. All rights reserved.
+</div>

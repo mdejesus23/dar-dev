@@ -1,0 +1,161 @@
+---
+import { Image } from 'astro:assets';
+import Button from '@/components/ui/Button.astro';
+import backgroundImage from '@/images/contact.jpg';
+import GradientOverlay from '@/components/ui/GradientOverlay.astro';
+---
+
+<section class="relative z-40 py-16 lg:py-24">
+  <!-- Gradient Overlay -->
+  <GradientOverlay />
+  <!-- Background Image -->
+  <div class="absolute inset-0 z-0">
+    <Image
+      src={backgroundImage}
+      alt="Background"
+      class="h-full w-full object-cover"
+      loading="eager"
+    />
+  </div>
+  <div class="relative z-20 container mx-auto px-4 lg:px-8">
+    <div
+      class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16"
+    >
+      <!-- Left Column - Title -->
+      <div class="space-y-6">
+        <div
+          class="bg-dark flex w-40 flex-col items-center justify-center border-b-2 border-l-2 border-white px-8 py-2"
+        >
+          <span class="font-supporting text-sm font-bold text-white uppercase">
+            CONTACT US
+          </span>
+        </div>
+
+        <h2
+          class="font-headline mb-4 text-4xl leading-tight font-bold text-white lg:text-5xl"
+        >
+          Ready to transform your business?
+        </h2>
+
+        <p class="font-supporting text-lg leading-relaxed text-white/80">
+          Let's discuss how we can help you achieve your goals with tailored
+          software solutions.
+        </p>
+      </div>
+
+      <!-- Right Column - Contact Form -->
+      <div class="space-y-6 lg:p-8">
+        <form class="space-y-6" id="contact-form">
+          <!-- Name Field -->
+          <div>
+            <label
+              for="name"
+              class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
+            >
+              YOUR NAME<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+            />
+          </div>
+
+          <!-- Company Field -->
+          <div>
+            <label
+              for="company"
+              class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
+            >
+              COMPANY <span class="text-dark font-normal">(Optional)</span>
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+            />
+          </div>
+
+          <!-- Email Field -->
+          <div>
+            <label
+              for="email"
+              class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
+            >
+              YOUR EMAIL<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+            />
+          </div>
+
+          <!-- Phone Field -->
+          <div>
+            <label
+              for="phone"
+              class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
+            >
+              PHONE NUMBER <span class="text-dark font-normal">(Optional)</span>
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+            />
+          </div>
+
+          <!-- Subject Field -->
+          <div>
+            <label
+              for="subject"
+              class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
+            >
+              SUBJECT
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+            />
+          </div>
+
+          <!-- Message Field -->
+          <div>
+            <label
+              for="message"
+              class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
+            >
+              TELL US ABOUT YOUR PROJECT
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              class="w-full resize-none border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+            ></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="flex justify-center pt-4">
+            <Button
+              size="sm"
+              type="submit"
+              class="font-supporting bg-cyan-400 px-12 py-3 text-sm font-bold tracking-wide text-gray-900 uppercase transition-all duration-300 hover:bg-cyan-300 hover:shadow-lg"
+            >
+              SEND MESSAGE
+            </Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

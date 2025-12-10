@@ -2,12 +2,15 @@
 import { Image } from 'astro:assets';
 import Meta from '@/components/global/Meta.astro';
 import Header from '@/components/global/Header.astro';
+import Footer from '@/components/global/Footer.astro';
 
-import '@/styles/global.css';
 // fonts
 import '@fontsource-variable/ibm-plex-sans'; // Supports weights 100-700
 import '@fontsource/questrial';
 import '@fontsource/space-mono';
+
+// global styles
+import '@/styles/global.css';
 
 interface Props {
   title: string;
@@ -30,19 +33,12 @@ const pageTitle = (title ?? '')
   </head>
   <body>
     <main class="relative min-h-screen">
-      <!-- Gradient Overlay -->
       <div class="absolute inset-0 z-20">
         <Header />
       </div>
-      <div
-        class="absolute inset-0 z-10"
-        style={{
-          background:
-            'linear-gradient(180deg, rgba(26, 31, 46, 0.85) 0%, rgba(26, 31, 46, 0.95) 100%)',
-        }}
-      >
-      </div>
+
       <slot />
     </main>
+    <Footer />
   </body>
 </html>
