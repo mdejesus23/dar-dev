@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets';
+import objectWave from '@/images/object-2.png';
+import mainImage from '@/images/grand-parent-learning-use-digital-divice.png';
+---
+
+<section class="bg-deep relative z-40 py-16 lg:py-24">
+  <div class="bg container mx-auto px-4 lg:px-8">
+    <div class="bg-dark grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <!-- Left Column: Image -->
+      <div class="relative">
+        <!-- Main image container -->
+        <div class="relative z-10 overflow-hidden bg-white">
+          <Image
+            src={mainImage}
+            alt="Team collaborating on technology solutions"
+            class="h-full w-full object-cover grayscale"
+            loading="lazy"
+          />
+        </div>
+      </div>
+
+      <!-- Right Column: Content -->
+      <div class="relative space-y-8 p-2">
+        <!-- Decorative Wave Object Background -->
+        <Image
+          src={objectWave}
+          alt="object wave decoration"
+          width={500}
+          class="absolute inset-0 z-0 h-full w-full object-cover"
+        />
+
+        <div class="relative z-10 space-y-6">
+          <h2 class="text-3xl font-bold text-white lg:text-4xl xl:text-5xl">
+            Empowering Businesses Through Technology
+          </h2>
+
+          <div class="font-supporting space-y-4 text-gray-300">
+            <p class="text-base lg:text-lg">
+              Dar.Dev LLC specializes in delivering tailored software solutions
+              for small and medium-sized businesses. With proven experience in
+              retail, wholesale, 3PL, and warehouse operations, we understand
+              the unique challenges you face.
+            </p>
+
+            <p class="text-base lg:text-lg">
+              We combine innovative technology with personalized service and
+              competitive pricing to help businesses streamline their operations
+              and reach their full potential..
+            </p>
+          </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="relative z-10 grid grid-cols-3 gap-8 pt-8">
+          <div class="space-y-2">
+            <div
+              class="text-accent font-headline text-4xl font-bold lg:text-5xl"
+            >
+              50+
+            </div>
+            <div
+              class="font-supporting text-sm tracking-wider text-gray-300 uppercase"
+            >
+              Projects
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div
+              class="text-accent font-headline text-4xl font-bold lg:text-5xl"
+            >
+              5+
+            </div>
+            <div
+              class="font-supporting text-sm tracking-wider text-gray-300 uppercase"
+            >
+              Years
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <div
+              class="text-accent font-headline text-4xl font-bold lg:text-5xl"
+            >
+              100%
+            </div>
+            <div
+              class="font-supporting text-sm tracking-wider text-gray-300 uppercase"
+            >
+              Satisfaction
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Background Pattern/Texture (optional) -->
+  <!-- <div class="absolute inset-0 z-0 opacity-5">
+    <div
+      class="h-full w-full"
+      style="background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(72, 181, 229, 0.1) 35px, rgba(72, 181, 229, 0.1) 70px);"
+    >
+    </div>
+  </div> -->
+</section>

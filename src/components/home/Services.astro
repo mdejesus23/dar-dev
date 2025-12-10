@@ -15,25 +15,29 @@ const services: CollectionEntry<'services'>[] = (
 ).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
-<section class="relative z-20 mt-40 bg-transparent">
+<section class="relative z-20 mt-30 overflow-hidden bg-transparent">
   <div class="container mx-auto px-4 py-10 lg:px-8">
-    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-5">
+    <div
+      class="grid grid-cols-1 items-center gap-8 lg:grid-cols-[2fr_3fr] lg:gap-20"
+    >
       <!-- Left Column: Section Header -->
-      <div class="space-y-6 lg:col-span-2">
+      <div class="space-y-6">
         <!-- Label -->
         <div
           class="bg-dark flex w-40 flex-col items-center justify-center border-b-2 border-l-2 border-white px-8 py-2"
         >
-          <span class="font-headline text-sm font-bold text-white uppercase">
+          <span class="font-supporting text-sm font-bold text-white uppercase">
             SERVICES
           </span>
         </div>
 
         <!-- Heading -->
-        <h2 class="text-4xl font-bold text-white lg:text-5xl">Our Services</h2>
+        <h2 class="font-headline text-4xl font-bold text-white lg:text-5xl">
+          Our Services
+        </h2>
 
         <!-- Description -->
-        <p class="text-lg text-gray-300 lg:text-xl">
+        <p class="font-supporting text-lg text-gray-300 lg:text-xl">
           Comprehensive solutions designed to help your business grow and
           succeed in the digital landscape.
         </p>
@@ -52,104 +56,127 @@ const services: CollectionEntry<'services'>[] = (
       </div>
 
       <!-- Right Column: Services Carousel -->
-      <div class="relative lg:col-span-3">
-        <!-- Top Line Decoration -->
-        <div class="mb-14">
-          <Image src={Line} alt="" class="h-auto w-full" />
-        </div>
-
-        <!-- Carousel Container -->
-        <div class="relative overflow-hidden">
-          <!-- Left Arrow -->
-          <button
-            id="prev-btn"
-            class="bg-primary absolute top-[200px] left-0 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white transition-all duration-200 hover:opacity-80"
-            aria-label="Previous services"
-          >
-            <Image
-              src={leftArrow}
-              alt="Left Arrow"
-              class="h-3 w-3"
-              width={100}
-            />
-          </button>
-
-          <!-- Right Arrow -->
-          <button
-            id="next-btn"
-            class="bg-primary absolute top-[200px] z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white transition-all duration-200 hover:opacity-80"
-            style="left: calc(2 * (320px + 24px) + 24px - 48px);"
-            aria-label="Next services"
-          >
-            <Image
-              src={rightArrow}
-              alt="Left Arrow"
-              class="h-3 w-3"
-              width={100}
-            />
-          </button>
-
-          <!-- Services Track -->
-          <div
-            id="services-track"
-            class="flex gap-6 transition-transform duration-500 ease-in-out"
-          >
-            {
-              services.map((service) => (
-                <div class="w-auto shrink-0">
-                  {/* Service Card */}
-                  <div class="group relative max-w-80 overflow-hidden p-6 transition-all duration-300">
-                    {/* Service Image */}
-                    <div class="bg-dark/50 mb-6 flex h-80 w-80 items-center justify-center overflow-hidden">
-                      <Image
-                        src={service.data.image}
-                        alt={service.data.title}
-                        class="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
-                      />
-                    </div>
-
-                    {/* Service Icon (Small) */}
-                    <div class="mb-4 flex items-start gap-4">
-                      <div class="h-10 w-10 shrink-0">
-                        <Image
-                          src={service.data.icon}
-                          alt="service icon"
-                          class="h-full w-full object-contain"
-                        />
-                      </div>
-                      <div class="w-full">
-                        <h3 class="text-xl font-semibold text-white">
-                          {service.data.title}
-                        </h3>
-                        {/* Description */}
-                        <p class="font-supporting text-gray-400">
-                          {service.data.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))
-            }
+      <div class="lg:ml-40">
+        <div class="carousel-overflow-right relative">
+          <!-- Top Line Decoration -->
+          <div class="mb-14">
+            <Image src={Line} alt="" class="h-auto w-full" />
           </div>
-        </div>
 
-        {/* Dots Indicator */}
-        <div
-          class="mt-8 flex items-center justify-start gap-2"
-          id="carousel-dots"
-        >
-          <!-- Dots will be generated by JavaScript -->
-        </div>
+          <!-- Carousel Container -->
+          <div class="relative">
+            <div class="overflow-x-hidden">
+              <!-- Left Arrow -->
+              <button
+                id="prev-btn"
+                class="bg-primary absolute top-[200px] left-0 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white transition-all duration-200 hover:opacity-80"
+                aria-label="Previous services"
+              >
+                <Image
+                  src={leftArrow}
+                  alt="Left Arrow"
+                  class="h-3 w-3"
+                  width={100}
+                />
+              </button>
 
-        <!-- Bottom Line Decoration -->
-        <div class="mt-14">
-          <Image src={Line} alt="" class="h-auto w-full" />
+              <!-- Right Arrow -->
+              <button
+                id="next-btn"
+                class="bg-primary absolute top-[200px] z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white transition-all duration-200 hover:opacity-80"
+                style="left: calc(2 * (320px + 24px) + 24px - 48px);"
+                aria-label="Next services"
+              >
+                <Image
+                  src={rightArrow}
+                  alt="Left Arrow"
+                  class="h-3 w-3"
+                  width={100}
+                />
+              </button>
+
+              <!-- Services Track -->
+              <div
+                id="services-track"
+                class="flex gap-6 transition-transform duration-500 ease-in-out"
+              >
+                {
+                  services.map((service) => (
+                    <div class="w-auto shrink-0">
+                      {/* Service Card */}
+                      <div class="group relative max-w-80 overflow-hidden p-6 transition-all duration-300">
+                        {/* Service Image */}
+                        <div class="bg-dark/50 mb-6 flex h-80 w-80 items-center justify-center overflow-hidden">
+                          <Image
+                            src={service.data.image}
+                            alt={service.data.title}
+                            class="h-full w-full object-cover grayscale transition-all duration-300 group-hover:grayscale-0"
+                          />
+                        </div>
+
+                        {/* Service Icon (Small) */}
+                        <div class="mb-4 flex items-start gap-4">
+                          <div class="h-10 w-10 shrink-0">
+                            <Image
+                              src={service.data.icon}
+                              alt="service icon"
+                              class="h-full w-full object-contain"
+                            />
+                          </div>
+                          <div class="w-full">
+                            <h3 class="text-xl font-semibold text-white">
+                              {service.data.title}
+                            </h3>
+                            {/* Description */}
+                            <p class="font-supporting text-gray-400">
+                              {service.data.description}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+
+          {/* Dots Indicator */}
+          <div
+            class="mt-8 flex items-center justify-start gap-2"
+            id="carousel-dots"
+          >
+            <!-- Dots will be generated by JavaScript -->
+          </div>
+
+          <!-- Bottom Line Decoration -->
+          <div class="mt-14">
+            <Image src={Line} alt="" class="h-auto w-full" />
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .carousel-overflow-right {
+    /* Mobile: no overflow, contained within viewport */
+    width: 100%;
+    margin-right: 0;
+  }
+
+  @media (min-width: 1024px) {
+    .carousel-overflow-right {
+      /* Desktop: Extend to the right edge of viewport */
+      width: calc(
+        100vw - ((100vw - min(80rem, 100vw - 4rem)) / 2) -
+          (2 / 5 * min(80rem, 100vw - 4rem)) - 3rem - 10rem
+      );
+      margin-right: calc(-1 * ((100vw - min(80rem, 100vw - 4rem)) / 2 + 2rem));
+    }
+  }
+</style>
 
 <script>
   import '@/scripts/carousel.ts';
