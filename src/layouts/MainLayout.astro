@@ -1,8 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import Meta from '@/components/global/Meta.astro';
 import Header from '@/components/global/Header.astro';
-import { Image } from 'astro:assets';
-import backgroundImage from '@/images/employees-working-together-side-view.jpg';
 
 import '@/styles/global.css';
 // fonts
@@ -30,17 +29,7 @@ const pageTitle = (title ?? '')
     <title>{pageTitle}</title>
   </head>
   <body>
-    <main class="relative min-h-screen pb-20">
-      <!-- Background Image -->
-      <div class="absolute inset-0 z-0">
-        <Image
-          src={backgroundImage}
-          alt="Background"
-          class="h-full w-full object-cover"
-          loading="eager"
-        />
-      </div>
-
+    <main class="relative min-h-screen">
       <!-- Gradient Overlay -->
       <div
         class="absolute inset-0 z-10"
@@ -50,12 +39,7 @@ const pageTitle = (title ?? '')
         }}
       >
       </div>
-
-      <!-- Content -->
-      <div class="relative z-20">
-        <Header />
-        <slot />
-      </div>
+      <slot />
     </main>
   </body>
 </html>
