@@ -13,13 +13,13 @@ faqToggles.forEach((toggle) => {
         // Close
         answer.classList.remove('grid-rows-[1fr]');
         answer.classList.add('grid-rows-[0fr]');
-        arrow.classList.remove('rotate-180');
+        arrow.classList.remove('rotate-90');
         toggle.setAttribute('aria-expanded', 'false');
       } else {
         // Open
         answer.classList.remove('grid-rows-[0fr]');
         answer.classList.add('grid-rows-[1fr]');
-        arrow.classList.add('rotate-180');
+        arrow.classList.add('rotate-90');
         toggle.setAttribute('aria-expanded', 'true');
       }
     }

@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import objectWave from '@/images/object-2.png';
 import mainImage from '@/images/grand-parent-learning-use-digital-divice.png';
+import blueCursor from '@/images/icons/blue-cursor.png';
 ---
 
 <section class="bg-deep py-16 lg:py-24">
@@ -30,6 +31,17 @@ import mainImage from '@/images/grand-parent-learning-use-digital-divice.png';
           class="absolute inset-0 z-0 h-full w-full object-cover"
         />
 
+        <!-- Blue Cursor Icon -->
+        <div class="absolute top-[-70px] right-0 z-10 md:hidden">
+          <Image
+            src={blueCursor}
+            alt="Blue Cursor Icon"
+            class="h-12 w-12 object-contain"
+            width={48}
+            height={48}
+          />
+        </div>
+
         <div class="relative z-10 space-y-6">
           <h2 class="text-3xl font-bold text-white lg:text-4xl xl:text-5xl">
             Empowering Businesses Through Technology
@@ -52,7 +64,7 @@ import mainImage from '@/images/grand-parent-learning-use-digital-divice.png';
         </div>
 
         <!-- Statistics -->
-        <div class="relative z-10 grid grid-cols-3 gap-8 pt-8">
+        <div class="relative z-10 grid grid-cols-1 gap-8 pt-8 md:grid-cols-3">
           <div class="space-y-2">
             <div
               class="text-accent font-headline text-4xl font-bold lg:text-5xl"

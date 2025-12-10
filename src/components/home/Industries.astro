@@ -30,7 +30,7 @@ const industries = [
     >
       <div class="space-y-6">
         <div
-          class="bg-dark flex w-40 flex-col items-center justify-center border-b-2 border-l-2 border-white px-8 py-2"
+          class="bg-dark mx-auto flex w-40 flex-col items-center justify-center border-b-2 border-l-2 border-white px-8 py-2 md:mx-0"
         >
           <span class="font-supporting text-sm font-bold text-white uppercase">
             INDUSTRIES
@@ -38,31 +38,33 @@ const industries = [
         </div>
 
         <h2
-          class="mb-4 text-4xl leading-tight font-bold text-white lg:text-5xl"
+          class="mb-4 text-center text-4xl leading-tight font-bold text-white md:text-left lg:text-5xl"
         >
           Industries We Serve
         </h2>
-        <p class="text-lg leading-relaxed text-white/80">
+        <p
+          class="text-center text-lg leading-relaxed text-white/80 md:text-left"
+        >
           Specialized expertise across key business sectors.
         </p>
       </div>
 
       <!-- right column  -->
       <!-- Mobile: 2-column grid -->
-      <div class="grid grid-cols-2 gap-5 lg:hidden">
+      <div class="flex flex-wrap justify-center gap-4 lg:hidden">
         {
           industries.map((industry, index) => (
-            <div class="flex h-[180px] w-full flex-col items-center justify-center border border-white text-center">
-              <div class="mb-5">
+            <div class="flex h-[140px] w-[calc(50%-0.5rem)] flex-col items-center justify-center border border-white text-center">
+              <div class="mb-3">
                 <Image
                   src={industry.icon}
                   alt={industry.name}
-                  width={80}
-                  height={80}
-                  class="h-20 w-20 object-contain"
+                  width={60}
+                  height={60}
+                  class="h-15 w-15 object-contain"
                 />
               </div>
-              <p class="text-base font-medium text-white">{industry.name}</p>
+              <p class="text-sm font-medium text-white">{industry.name}</p>
             </div>
           ))
         }

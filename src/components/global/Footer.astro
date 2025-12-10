@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import logo from '../../images/dar-dev-logo.png';
 import verticalLine from '@/images/shapes/vertical-line.png';
+import horizontalLine from '@/images/shapes/line-1.png';
 ---
 
 <footer class="bg-dark px-8 py-16 text-white md:px-16 lg:px-8">
@@ -10,20 +11,22 @@ import verticalLine from '@/images/shapes/vertical-line.png';
       class="grid w-full grid-cols-1 gap-10 md:grid-cols-4 md:gap-8 lg:gap-12"
     >
       <!-- Logo and Description -->
-      <div class="flex flex-col gap-6 md:col-span-1">
+      <div
+        class="flex flex-col items-center gap-6 text-center md:col-span-1 md:items-start md:text-left"
+      >
         <div class="shrink">
           <a href="/" class="block">
             <Image
               src={logo}
               alt="dar.dev Logo"
-              class="h-10 w-auto"
+              class="h-8 w-auto md:h-10"
               width={200}
               height={48}
             />
           </a>
         </div>
         <p
-          class="font-supporting font-supporting text-[0.95rem] leading-relaxed text-[#b8c5d6]"
+          class="font-supporting text-[0.95rem] leading-relaxed text-[#b8c5d6]"
         >
           Helping small and medium-sized businesses grow through tailored
           software solutions.
@@ -41,8 +44,22 @@ import verticalLine from '@/images/shapes/vertical-line.png';
         />
       </div>
 
+      <div
+        class="mx-auto block items-center justify-center md:col-span-1 md:hidden"
+      >
+        <Image
+          src={horizontalLine}
+          alt="Horizontal Line"
+          class="h-auto w-40 opacity-30"
+          width={160}
+          height={10}
+        />
+      </div>
+
       <!-- Company Links -->
-      <div class="flex flex-col md:col-span-1">
+      <div
+        class="flex flex-col items-center text-center md:col-span-1 md:items-start md:text-left"
+      >
         <h3 class="font-headline mb-6 text-sm font-bold tracking-wider">
           COMPANY
         </h3>
@@ -79,7 +96,9 @@ import verticalLine from '@/images/shapes/vertical-line.png';
       </div>
 
       <!-- Services Links -->
-      <div class="flex flex-col md:col-span-1">
+      <div
+        class="flex flex-col items-center text-center md:col-span-1 md:items-start md:text-left"
+      >
         <h3 class="font-headline mb-6 text-sm font-bold tracking-wider">
           SERVICES
         </h3>

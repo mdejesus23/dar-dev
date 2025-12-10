@@ -5,7 +5,7 @@ import DiagonalArrowWhite from '@/images/icons/diagonal-arrow-white.png';
 import DiagonalArrowAccent from '@/images/icons/diagonal-arrow-accent.png';
 import Button from '@/components/ui/Button.astro';
 import Services from '@/components/home/Services.astro';
-import GradientOverlay from '@/components/ui/GradientOverlay.astro';
+import GradientOverlay2 from '@/components/ui/GradientOverlay2.astro';
 
 // Background images
 import backgroundImage from '@/images/employees-working-together-side-view.jpg';
@@ -19,7 +19,7 @@ import AutomationIcon from '@/images/icons/automation.png';
 
 <section class="relative min-h-screen py-40">
   <!-- Gradient Overlay -->
-  <GradientOverlay />
+  <GradientOverlay2 />
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     <Image
@@ -31,7 +31,7 @@ import AutomationIcon from '@/images/icons/automation.png';
   </div>
 
   <!-- Wave Object -->
-  <div class="absolute top-0 left-0 z-15 h-auto w-full">
+  <div class="absolute top-0 left-0 z-15 hidden h-auto w-full md:block">
     <Image
       src={WaveObject}
       alt="Wave Object"
@@ -103,8 +103,10 @@ import AutomationIcon from '@/images/icons/automation.png';
           </div>
         </div>
 
-        <!-- Right Column: Services Grid -->
-        <div class="relative min-h-0 md:min-h-100 lg:col-span-2 lg:min-h-120">
+        <!-- Right Column: Desktop Services Grid -->
+        <div
+          class="relative hidden min-h-0 md:block md:min-h-100 lg:col-span-2 lg:min-h-120"
+        >
           <!-- Service Card 1: Web Applications -->
           <div
             class="bg-dark-blue flex w-[20rem] flex-col items-center justify-center border-b-2 border-l-2 border-white py-4 lg:absolute lg:top-0 lg:left-0"
@@ -150,6 +152,94 @@ import AutomationIcon from '@/images/icons/automation.png';
                 <p class="text-gray-400">Streamline Processes</p>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Mobile Services Grid -->
+        <div class="relative block h-[500px] w-full md:hidden">
+          <!-- Service Card 1: Web Applications -->
+          <div
+            class="bg-dark-blue absolute top-10 right-2 flex h-40 w-45 flex-col items-start justify-center border-2 border-white p-4 shadow-lg"
+          >
+            <div class="flex flex-col items-start gap-3">
+              <div class="flex shrink-0 flex-col items-center justify-center">
+                <Image
+                  src={WebApplicationsIcon}
+                  alt="Web Applications Icon"
+                  class="h-10 w-10"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3
+                  class="font-headline text-sm leading-tight font-bold text-white"
+                >
+                  WEB APPLICATIONS
+                </h3>
+                <p class="font-supporting mt-1 text-xs text-gray-400">
+                  Custom Solutions
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 2: Integration -->
+          <div
+            class="bg-dark-blue absolute top-44 left-0 flex h-40 w-45 flex-col items-start justify-center border-2 border-white p-4 shadow-lg"
+          >
+            <div class="flex flex-col items-start gap-3">
+              <div class="flex shrink-0 flex-col items-center justify-center">
+                <Image
+                  src={IntegrationIcon}
+                  alt="Integration Icon"
+                  class="h-10 w-10"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3
+                  class="font-headline text-sm leading-tight font-bold text-white"
+                >
+                  INTEGRATION
+                </h3>
+                <p class="font-supporting mt-1 text-xs text-gray-400">
+                  Connect Systems
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service Card 3: Automation -->
+          <div
+            class="bg-dark-blue absolute top-88 right-15 bottom-0 flex h-40 w-45 flex-col items-start justify-center border-2 border-white p-4 shadow-lg"
+          >
+            <div class="flex flex-col items-start gap-3">
+              <div class="shrink-0">
+                <Image
+                  src={AutomationIcon}
+                  alt="Automation Icon"
+                  class="h-10 w-10"
+                />
+              </div>
+              <div class="flex flex-col">
+                <h3
+                  class="font-headline text-sm leading-tight font-bold text-white"
+                >
+                  AUTOMATION
+                </h3>
+                <p class="font-supporting mt-1 text-xs text-gray-400">
+                  Streamline Processes
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Wave Object -->
+          <div class="absolute top-0 left-0 z-15 block h-auto w-full md:hidden">
+            <Image
+              src={WaveObject}
+              alt="Wave Object"
+              class="h-auto w-full object-contain object-top"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
