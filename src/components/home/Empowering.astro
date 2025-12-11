@@ -5,13 +5,15 @@ import mainImage from '@/images/grand-parent-learning-use-digital-divice.png';
 import blueCursor from '@/images/icons/blue-cursor.png';
 ---
 
-<section class="bg-deep py-16 lg:py-24">
-  <div class="bg container mx-auto px-4 lg:px-8">
+<section class="bg-deep px-4 py-16 lg:px-8 lg:py-24">
+  <div
+    class="bg container mx-auto border-b-5 border-l-5 border-white lg:border-r-5 lg:border-b-5 lg:border-l-0"
+  >
     <div class="bg-dark grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
       <!-- Left Column: Image -->
-      <div class="relative">
+      <div class="relative h-full w-full">
         <!-- Main image container -->
-        <div class="relative z-10 overflow-hidden bg-white">
+        <div class="relative z-10 h-full w-full overflow-hidden bg-white">
           <Image
             src={mainImage}
             alt="Team collaborating on technology solutions"

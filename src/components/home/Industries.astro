@@ -7,8 +7,8 @@ import logistic from '@/images/icons/logistic.png';
 import b2bServices from '@/images/icons/b2b-services.png';
 
 const industries = [
-  { name: 'Retail', icon: retail, position: 'top-0 left-35' },
-  { name: 'Wholesale', icon: wholesale, position: 'top-10 right-15' },
+  { name: 'Retail', icon: retail, position: 'top-0 left-25' },
+  { name: 'Wholesale', icon: wholesale, position: 'top-10 left-85' },
   {
     name: '3PL',
     icon: logistic,
@@ -19,7 +19,7 @@ const industries = [
     icon: warehouse,
     position: 'top-[360px] left-[-200px]',
   },
-  { name: 'B2B Services', icon: b2bServices, position: 'bottom-20 right-35' },
+  { name: 'B2B Services', icon: b2bServices, position: 'bottom-20 left-75' },
 ];
 ---
 
@@ -51,7 +51,7 @@ const industries = [
 
       <!-- right column  -->
       <!-- Mobile: 2-column grid -->
-      <div class="flex flex-wrap justify-center gap-4 lg:hidden">
+      <div class="flex flex-wrap justify-center gap-4 xl:hidden">
         {
           industries.map((industry, index) => (
             <div class="flex h-[140px] w-[calc(50%-0.5rem)] flex-col items-center justify-center border border-white text-center">
@@ -71,11 +71,11 @@ const industries = [
       </div>
 
       <!-- Large screen: Floating layout -->
-      <div class="relative hidden min-h-[600px] w-full lg:block">
+      <div class="relative hidden min-h-[600px] w-full xl:block">
         {
           industries.map((industry, index) => (
             <div
-              class={`absolute flex h-[220px] w-[220px] flex-col items-center justify-center border border-white text-center ${industry.position}`}
+              class={`absolute flex h-[200px] w-[200px] flex-col items-center justify-center border border-white text-center ${industry.position}`}
             >
               <div class="mb-5">
                 <Image

@@ -1,15 +1,14 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import GradientOverlay2 from '@/components/ui/GradientOverlay2.astro';
-import Button from '@/components/ui/Button.astro';
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import Rectangle from '@/images/shapes/rectangle-1.png';
+import { ISPARTOF } from '@/data/constants';
 
 // Background images
 import backgroundImage from '@/images/service-hero-image.jpg';
-import DiagonalArrowAccent from '@/images/icons/diagonal-arrow-accent.png';
 
 const services: CollectionEntry<'services'>[] = (
   await getCollection('services')
@@ -18,12 +17,6 @@ const services: CollectionEntry<'services'>[] = (
 const title = 'Our Services - dar.dev';
 const description =
   'Explore our comprehensive range of software development services including web applications, mobile apps, consulting, automation, and more.';
-
-const ISPARTOF = {
-  '@type': 'Organization',
-  name: 'Dar.Dev',
-  url: 'https://dar.dev',
-};
 ---
 
 <MainLayout

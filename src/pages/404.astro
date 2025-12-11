@@ -4,16 +4,11 @@ import Button from '@/components/ui/Button.astro';
 import { Image } from 'astro:assets';
 import DiagonalArrowWhite from '@/images/icons/diagonal-arrow-white.png';
 import GradientOverlay from '@/components/ui/GradientOverlay.astro';
+import { ISPARTOF } from '@/data/constants';
 
 const title = '404 - Page Not Found | dar.dev';
 const description =
   'The page you are looking for could not be found. Return to our homepage to explore our custom software solutions and web development services.';
-
-const ISPARTOF = {
-  '@type': 'Organization',
-  name: 'Dar.Dev',
-  url: 'https://dar.dev',
-};
 ---
 
 <MainLayout
@@ -33,7 +28,7 @@ const ISPARTOF = {
   <section class="relative flex min-h-screen items-center justify-center py-20">
     <GradientOverlay />
     <!-- Content -->
-    <div class="relative z-20 w-full">
+    <div class="relative z-50 w-full">
       <div class="container mx-auto px-4 lg:px-8">
         <div class="mx-auto max-w-3xl text-center">
           <!-- 404 Number -->
