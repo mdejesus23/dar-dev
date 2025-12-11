@@ -1,4 +1,4 @@
-import ogImageSrc from '@/images/dar-dev-logo.png';
+import ogImageSrc from '@/images/default-og.png';
 
 export const SITE = {
   title: 'dar.dev - Custom Software & Web Solutions',
