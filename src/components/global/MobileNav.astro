@@ -1,0 +1,57 @@
+---
+
+---
+
+<div id="mobile-menu" class="fixed inset-0 z-80 hidden bg-[#2C3E50] md:hidden">
+  <div class="flex h-full flex-col justify-center p-6">
+    <!-- Close Button -->
+    <div class="flex justify-end">
+      <button
+        id="mobile-menu-close"
+        class="hover:text-primary text-white focus:outline-none"
+        aria-label="Close mobile menu"
+      >
+        <svg
+          class="h-8 w-8"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation Links -->
+    <nav class="-mr-6 flex flex-1 flex-col justify-center space-y-6">
+      <a
+        href="/services"
+        class="hover:text-primary border-b border-white pr-6 pb-6 text-xl font-medium text-white transition-colors duration-200"
+      >
+        Services
+      </a>
+      <a
+        href="/industries"
+        class="hover:text-primary border-b border-white pr-6 pb-6 text-xl font-medium text-white transition-colors duration-200"
+      >
+        Industries
+      </a>
+      <a
+        href="/about"
+        class="hover:text-primary border-b border-white pr-6 pb-6 text-xl font-medium text-white transition-colors duration-200"
+      >
+        About
+      </a>
+      <a
+        href="/contact"
+        class="hover:text-primary border-b border-white pr-6 pb-6 text-xl font-medium text-white transition-colors duration-200"
+      >
+        Contact
+      </a>
+    </nav>
+  </div>
+</div>

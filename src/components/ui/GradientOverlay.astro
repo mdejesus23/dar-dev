@@ -1,8 +1,31 @@
+---
+interface Props {
+  angle?: number;
+  startColor?: string;
+  startOpacity?: number;
+  startPosition?: string;
+  middleColor?: string;
+  middleOpacity?: number;
+  middlePosition?: string;
+  endColor?: string;
+  endPosition?: string;
+}
+
+const {
+  angle = 128.24,
+  startColor = 'rgba(26, 31, 46, 0.5)',
+  startPosition = '-28.56%',
+  middleColor = 'rgba(26, 31, 46, 0.908997)',
+  middlePosition = '-1.39%',
+  endColor = '#1A1F2E',
+  endPosition = '50.54%',
+} = Astro.props;
+---
+
 <div
   class="absolute inset-0 z-10"
   style={{
-    background:
-      'linear-gradient(128.24deg, rgba(26, 31, 46, 0.5) -28.56%, rgba(26, 31, 46, 0.908997) -1.39%, #1A1F2E 50.54%)',
+    background: `linear-gradient(${angle}deg, ${startColor} ${startPosition}, ${middleColor} ${middlePosition}, ${endColor} ${endPosition})`,
   }}
 >
 </div>

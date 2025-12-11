@@ -1,0 +1,88 @@
+---
+const workSteps = [
+  {
+    id: '01',
+    title: 'Context',
+    description: 'We understand your product, users, and constraints.',
+    position: 'top-0 left-0',
+  },
+  {
+    id: '02',
+    title: 'Structure',
+    description: 'We map flows and interactions before visuals begin.',
+    position: 'top-[140px] left-[-300px]',
+  },
+  {
+    id: '03',
+    title: 'Interface',
+    description:
+      'We design interfaces that prioritize clarity and consistency.',
+    position: 'top-[280px] left-[-400px]',
+  },
+  {
+    id: '04',
+    title: 'Refinement',
+    description: 'Feedback is applied quickly and intentionally.',
+    position: 'top-[320px] left-[180px]',
+  },
+  {
+    id: '05',
+    title: 'Delivery',
+    description: 'Assets are clean, documented, and ready to build.',
+    position: 'bottom-10 left-[-100px]',
+  },
+];
+---
+
+<section
+  class="bg-deep flex min-h-24 items-center justify-center py-16 lg:py-24"
+>
+  <div class="bg container mx-auto px-4 lg:px-8">
+    <div
+      class="relative grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16"
+    >
+      <div class="space-y-6">
+        <h2
+          class="mb-4 text-left text-4xl leading-tight font-bold text-white md:text-left lg:text-center lg:text-5xl"
+        >
+          How We Work
+        </h2>
+      </div>
+
+      <!-- right column  -->
+      <!-- Mobile: Stacked layout -->
+      <div class="flex flex-col gap-4 xl:hidden">
+        {
+          workSteps.map((step) => (
+            <div class="flex flex-col border-2 border-white p-6">
+              <span class="mb-2 text-2xl font-bold text-cyan-400">
+                {step.id}
+              </span>
+              <h3 class="mb-2 text-xl font-bold text-white">{step.title}</h3>
+              <p class="text-sm text-gray-300">{step.description}</p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Large screen: Floating layout -->
+      <div class="relative hidden min-h-[600px] w-full xl:block">
+        {
+          workSteps.map((step) => (
+            <div
+              class={`absolute flex flex-row items-start gap-4 border-2 border-white p-6 px-12 ${step.position}`}
+            >
+              <span class="mb-2 text-3xl font-bold text-cyan-400">
+                {step.id}
+              </span>
+              <div>
+                <h3 class="mb-2 text-xl font-bold text-white">{step.title}</h3>
+                <p class="text-sm text-gray-300">{step.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

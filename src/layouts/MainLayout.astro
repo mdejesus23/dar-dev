@@ -1,8 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import Meta from '@/components/global/Meta.astro';
 import Header from '@/components/global/Header.astro';
 import Footer from '@/components/global/Footer.astro';
+import MobileNav from '@/components/global/MobileNav.astro';
 
 // fonts
 import '@fontsource-variable/ibm-plex-sans'; // Supports weights 100-700
@@ -32,6 +32,8 @@ const pageTitle = (title ?? '')
     <title>{pageTitle}</title>
   </head>
   <body>
+    <!-- Mobile Navigation Overlay -->
+    <MobileNav />
     <main class="relative min-h-screen">
       <div class="absolute inset-0 z-50">
         <Header />
@@ -40,5 +42,9 @@ const pageTitle = (title ?? '')
       <slot />
     </main>
     <Footer />
+
+    <script>
+      import '@/scripts/mobile-toggle';
+    </script>
   </body>
 </html>

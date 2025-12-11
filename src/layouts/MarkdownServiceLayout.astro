@@ -1,0 +1,150 @@
+---
+import { Image } from 'astro:assets';
+import Rectangle from '@/images/shapes/rectangle-1.png';
+import { ISPARTOF } from '@/data/constants';
+import MainLayout from '@/layouts/MainLayout.astro';
+import GradientOverlay2 from '@/components/ui/GradientOverlay2.astro';
+import Prose from '@/components/ui/Prose.astro';
+import HowWeWork from '@/components/sections/HowWeWork.astro';
+import WhatYouGet from '@/components/sections/WhatYouGet.astro';
+import ReadyWhenDeployment from '@/components/sections/ReadyWhenDeployment.astro';
+
+// Background images
+import backgroundImage from '@/images/service-individual-image-page.jpg';
+import objectWave from '@/images/object-2.png';
+
+interface Props {
+  data: any;
+  collection: string;
+  entry: any;
+}
+
+const { data, collection, entry } = Astro.props;
+const title = `${data.title} - dar.dev`;
+const description = data.description || '';
+---
+
+<MainLayout
+  title={title}
+  structuredData={{
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `https://dar.dev/services/${entry.id}`,
+    url: `https://dar.dev/services/${entry.id}`,
+    name: title,
+    description: description,
+    isPartOf: ISPARTOF,
+    inLanguage: 'en-US',
+  }}
+  meta={description}
+>
+  <section class="relative min-h-40 w-full overflow-hidden md:min-h-140">
+    <!-- Background Image -->
+    <div class="absolute inset-0 z-0">
+      <Image
+        src={backgroundImage}
+        alt="Our Services"
+        class="h-full w-full object-cover"
+        loading="eager"
+      />
+    </div>
+    <!-- Gradient Overlay -->
+    <GradientOverlay2 />
+
+    <!-- Hero Content -->
+    <div class="relative z-20 flex min-h-150 items-center md:min-h-200">
+      <div class="container mx-auto px-4 py-20 lg:px-8">
+        <div class="max-w-4xl space-y-6">
+          <!-- Heading -->
+          <h1 class="font-headline text-5xl font-bold text-white lg:text-7xl">
+            {data.title}
+          </h1>
+
+          <Image
+            src={Rectangle}
+            alt="Decorative Rectangle"
+            class="w-full max-w-140"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- design that's ready to build.  -->
+  <section class="bg-deep relative z-50 px-4 pb-40 lg:px-0">
+    <div class="container mx-auto">
+      <div
+        class="grid min-h-160 grid-cols-1 items-center gap-12 lg:h-160 lg:grid-cols-2"
+      >
+        <!-- Left Column: Image -->
+        <div
+          class="bg-dark relative flex h-full flex-col items-center space-y-8 border-b-4 border-l-4 border-white px-10 py-20 md:p-2 lg:border-b-0 lg:border-l-0 lg:px-20 lg:pt-30"
+        >
+          <!-- Decorative Wave Object Background -->
+          <Image
+            src={objectWave}
+            alt="object wave decoration"
+            width={500}
+            class="absolute inset-0 z-0 h-full w-full object-cover"
+          />
+
+          <div class="relative z-10 space-y-6">
+            <h2 class="text-4xl font-bold text-white lg:text-5xl xl:text-6xl">
+              Design that’s ready to build.
+            </h2>
+
+            <div class="font-supporting space-y-4 text-gray-300">
+              <p class="text-base lg:text-lg">
+                Turnkey Design delivers end-to-end product design—from structure
+                to interface—so your software is clear, usable, and ready for
+                development. No handoffs between vendors. No guesswork.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Markdown Content -->
+        <div class="flex h-full w-full flex-col">
+          <!-- Main image container -->
+          <div class="z-10 h-100 w-full overflow-hidden bg-white lg:h-full">
+            <Image
+              src={data.image}
+              alt="Team collaborating on technology solutions"
+              class="h-full w-full object-cover grayscale"
+              loading="lazy"
+              width={900}
+            />
+          </div>
+
+          {/* Service Icon (Small) */}
+          <div class="mb-4 flex items-start gap-8 py-10 lg:py-20">
+            <div class="hidden h-12 w-12 shrink-0 md:block">
+              <Image
+                src={data.icon}
+                alt="service icon"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="w-full text-white">
+              <h3 class="mb-6 text-3xl font-semibold text-white lg:text-4xl">
+                What It Is
+              </h3>
+
+              <Prose>
+                <slot />
+              </Prose>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- what you get  -->
+  <WhatYouGet />
+
+  <!-- how we work  -->
+  <HowWeWork />
+
+  <ReadyWhenDeployment />
+</MainLayout>

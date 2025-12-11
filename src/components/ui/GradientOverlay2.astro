@@ -1,8 +1,33 @@
+---
+interface Props {
+  overlayColor?: string;
+  overlayOpacity?: number;
+  gradientStartColor?: string;
+  gradientEndColor?: string;
+}
+
+const {
+  overlayColor = 'rgba(26, 31, 46, 0.8)',
+  overlayOpacity = 0.8,
+  gradientStartColor = 'rgba(26, 31, 46, 0)',
+  gradientEndColor = '#1A1F2E',
+} = Astro.props;
+
+// If overlayColor is provided without opacity, apply the overlayOpacity
+const overlayColorWithOpacity =
+  overlayColor.includes('rgba') || overlayColor.includes('hsla')
+    ? overlayColor
+    : overlayColor.startsWith('#')
+      ? `${overlayColor}${Math.round(overlayOpacity * 255)
+          .toString(16)
+          .padStart(2, '0')}`
+      : overlayColor;
+---
+
 <div
   class="absolute inset-0 z-10"
   style={{
-    background:
-      'linear-gradient(0deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.8)), linear-gradient(180deg, rgba(26, 31, 46, 0) -23.69%, #1A1F2E 82.47%)',
+    background: `linear-gradient(0deg, ${overlayColorWithOpacity}, ${overlayColorWithOpacity}), linear-gradient(180deg, ${gradientStartColor} -23.69%, ${gradientEndColor} 82.47%)`,
   }}
 >
 </div>
