@@ -104,7 +104,10 @@ const services: CollectionEntry<'services'>[] = (
                   services.map((service) => (
                     <div class="w-auto shrink-0">
                       {/* Service Card */}
-                      <div class="group relative max-w-80 overflow-hidden p-6 transition-all duration-300">
+                      <a
+                        href={`/services/${service.id}`}
+                        class="group hover:bg-dark-blue/20 relative block max-w-80 overflow-hidden p-6 transition-all duration-300"
+                      >
                         {/* Service Image */}
                         <div class="bg-dark/50 mb-6 flex h-80 w-80 items-center justify-center overflow-hidden">
                           <Image
@@ -133,7 +136,7 @@ const services: CollectionEntry<'services'>[] = (
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     </div>
                   ))
                 }

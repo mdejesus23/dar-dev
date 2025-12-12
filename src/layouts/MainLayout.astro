@@ -35,8 +35,10 @@ const pageTitle = (title ?? '')
     <!-- Mobile Navigation Overlay -->
     <MobileNav />
     <main class="relative min-h-screen">
-      <div class="absolute inset-0 z-50">
-        <Header />
+      <div class="pointer-events-none absolute inset-x-0 top-0 z-50">
+        <div class="pointer-events-auto">
+          <Header />
+        </div>
       </div>
 
       <slot />

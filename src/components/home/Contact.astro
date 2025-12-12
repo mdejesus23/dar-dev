@@ -5,9 +5,7 @@ import backgroundImage from '@/images/contact.jpg';
 import GradientOverlay from '@/components/ui/GradientOverlay.astro';
 ---
 
-<section class="relative z-40 py-16 lg:py-24">
-  <!-- Gradient Overlay -->
-  <GradientOverlay />
+<section class="relative z-46 py-16 lg:py-24">
   <!-- Background Image -->
   <div class="absolute inset-0 z-0">
     <Image
@@ -17,6 +15,8 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
       loading="eager"
     />
   </div>
+  <!-- Gradient Overlay -->
+  <GradientOverlay />
   <div class="relative z-20 container mx-auto px-4 lg:px-8">
     <div
       class="grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16"
@@ -44,8 +44,8 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
       </div>
 
       <!-- Right Column - Contact Form -->
-      <div class="space-y-6 lg:p-8">
-        <form class="space-y-6" id="contact-form">
+      <div class="relative z-30 space-y-6 lg:p-8">
+        <form class="pointer-events-auto relative space-y-6" id="contact-form">
           <!-- Name Field -->
           <div>
             <label
@@ -59,7 +59,7 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
               id="name"
               name="name"
               required
-              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+              class="pointer-events-auto relative w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 pl-4 text-white placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
             />
           </div>
 
@@ -69,13 +69,13 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
               for="company"
               class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
             >
-              COMPANY <span class="text-dark font-normal">(Optional)</span>
+              COMPANY <span class="font-normal text-gray-400">(Optional)</span>
             </label>
             <input
               type="text"
               id="company"
               name="company"
-              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 pl-4 text-white placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
             />
           </div>
 
@@ -92,7 +92,7 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
               id="email"
               name="email"
               required
-              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 pl-4 text-white placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
             />
           </div>
 
@@ -102,13 +102,15 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
               for="phone"
               class="font-headline mb-2 ml-4 block text-sm font-bold tracking-wider text-white uppercase md:text-base"
             >
-              PHONE NUMBER <span class="text-dark font-normal">(Optional)</span>
+              PHONE NUMBER <span class="font-normal text-gray-400"
+                >(Optional)</span
+              >
             </label>
             <input
               type="tel"
               id="phone"
               name="phone"
-              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 pl-4 text-white placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
             />
           </div>
 
@@ -124,7 +126,7 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
               type="text"
               id="subject"
               name="subject"
-              class="w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+              class="pointer-events-auto relative w-full border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 pl-4 text-white placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
             />
           </div>
 
@@ -140,7 +142,7 @@ import GradientOverlay from '@/components/ui/GradientOverlay.astro';
               id="message"
               name="message"
               rows="4"
-              class="w-full resize-none border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 text-gray-800 placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
+              class="pointer-events-auto relative w-full resize-none border-r-2 border-b-2 border-l-2 border-gray-200 bg-transparent px-0 py-2.5 pl-4 text-white placeholder-gray-300 transition-colors duration-200 focus:border-gray-400 focus:outline-none"
             ></textarea>
           </div>
 
