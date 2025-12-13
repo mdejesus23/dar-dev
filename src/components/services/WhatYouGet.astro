@@ -35,10 +35,12 @@ const faqs = [
 ];
 ---
 
-<section class="bg-medium-blue relative z-60 min-h-240 py-16 lg:py-24">
+<section
+  class="bg-medium-blue relative z-60 h-full py-20 lg:min-h-240 lg:py-24"
+>
   <div class="container mx-auto px-4 lg:px-8">
     <div
-      class="relative grid grid-cols-1 items-start gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16"
+      class="relative grid grid-cols-1 items-start gap-6 md:gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-16"
     >
       <!-- Left Column - Title -->
       <div class="space-y-6">
@@ -54,7 +56,7 @@ const faqs = [
         {
           faqs.map((faq, index) => (
             <div
-              class="faq-item border-t border-b border-white/60 py-10 first:border-t-0"
+              class="faq-item border-t border-b border-white/60 py-6 first:border-t-0 lg:py-10"
               data-faq-id={faq.id}
             >
               <button
@@ -84,7 +86,7 @@ const faqs = [
                 class="faq-answer mt-6 grid grid-rows-[0fr] transition-all duration-300 ease-in-out"
               >
                 <div class="overflow-hidden">
-                  <div class="mt34 p3-12 md:pl-16 lg:pl-20">
+                  <div class="pr-6 pl-8 md:pl-16 lg:pl-20">
                     <p class="font-supporting text-sm leading-relaxed text-white/90">
                       {faq.answer}
                     </p>

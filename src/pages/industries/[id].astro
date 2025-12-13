@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import MarkdownServiceLayout from '@/layouts/MarkdownServiceLayout.astro';
+
+export async function getStaticPaths() {
+  const allIndustries: CollectionEntry<'industries'>[] = (
+    await getCollection('industries')
+  ).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+
+  return allIndustries.map((entry) => ({
+    params: { id: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const collection = entry.collection;
+const data: any = entry.data;
+const { Content } = await render(entry);
+---
+
+<MarkdownServiceLayout {data} collection={collection} entry={entry}>
+  <Content />
+</MarkdownServiceLayout>

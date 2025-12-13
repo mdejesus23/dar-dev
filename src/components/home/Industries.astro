@@ -1,26 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
-import retail from '@/images/icons/retail.png';
-import wholesale from '@/images/icons/wholesale.png';
-import warehouse from '@/images/icons/warehouse.png';
-import logistic from '@/images/icons/logistic.png';
-import b2bServices from '@/images/icons/b2b-services.png';
 
-const industries = [
-  { name: 'Retail', icon: retail, position: 'top-0 left-25' },
-  { name: 'Wholesale', icon: wholesale, position: 'top-10 left-85' },
-  {
-    name: '3PL',
-    icon: logistic,
-    position: 'top-[260px] left-15 ',
-  },
-  {
-    name: 'Warehouse',
-    icon: warehouse,
-    position: 'top-[360px] left-[-200px]',
-  },
-  { name: 'B2B Services', icon: b2bServices, position: 'bottom-20 left-75' },
-];
+const industries: CollectionEntry<'industries'>[] = (
+  await getCollection('industries')
+).sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
 ---
 
 <section class="bg-deep py-16 lg:py-24">
@@ -57,14 +42,14 @@ const industries = [
             <div class="flex h-[140px] w-[calc(50%-0.5rem)] flex-col items-center justify-center border border-white text-center">
               <div class="mb-3">
                 <Image
-                  src={industry.icon}
-                  alt={industry.name}
+                  src={industry.data.icon}
+                  alt={industry.data.name}
                   width={60}
                   height={60}
                   class="h-15 w-15 object-contain"
                 />
               </div>
-              <p class="text-sm font-medium text-white">{industry.name}</p>
+              <p class="text-sm font-medium text-white">{industry.data.name}</p>
             </div>
           ))
         }
@@ -75,18 +60,20 @@ const industries = [
         {
           industries.map((industry, index) => (
             <div
-              class={`absolute flex h-[200px] w-[200px] flex-col items-center justify-center border border-white text-center ${industry.position}`}
+              class={`absolute flex h-[200px] w-[200px] flex-col items-center justify-center border border-white text-center ${industry.data.position}`}
             >
               <div class="mb-5">
                 <Image
-                  src={industry.icon}
-                  alt={industry.name}
+                  src={industry.data.icon}
+                  alt={industry.data.name}
                   width={80}
                   height={80}
                   class="h-20 w-20 object-contain"
                 />
               </div>
-              <p class="text-base font-medium text-white">{industry.name}</p>
+              <p class="text-base font-medium text-white">
+                {industry.data.name}
+              </p>
             </div>
           ))
         }

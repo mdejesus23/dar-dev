@@ -74,29 +74,85 @@ if (track && prevBtn && nextBtn && dotsContainer) {
     }
   });
 
-  // Auto-scroll (optional)
-  let autoScrollInterval = setInterval(() => {
-    if (currentIndex < maxIndex) {
-      currentIndex++;
-    } else {
-      currentIndex = 0;
-    }
-    updateCarousel();
-  }, 5000);
+  // Touch/Drag functionality
+  let isDragging = false;
+  let startPos = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let animationID: number;
 
-  // Pause auto-scroll on hover
-  track.addEventListener('mouseenter', () => {
-    clearInterval(autoScrollInterval);
+  // Mouse events
+  track.addEventListener('mousedown', dragStart);
+  track.addEventListener('mousemove', drag);
+  track.addEventListener('mouseup', dragEnd);
+  track.addEventListener('mouseleave', dragEnd);
+
+  // Touch events
+  track.addEventListener('touchstart', dragStart);
+  track.addEventListener('touchmove', drag);
+  track.addEventListener('touchend', dragEnd);
+
+  function dragStart(event: MouseEvent | TouchEvent) {
+    isDragging = true;
+    startPos = getPositionX(event);
+    animationID = requestAnimationFrame(animation);
+    track.style.cursor = 'grabbing';
+  }
+
+  function drag(event: MouseEvent | TouchEvent) {
+    if (isDragging) {
+      const currentPosition = getPositionX(event);
+      currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+  }
+
+  function dragEnd() {
+    if (!isDragging) return;
+
+    isDragging = false;
+    cancelAnimationFrame(animationID);
+    track.style.cursor = 'grab';
+
+    const movedBy = currentTranslate - prevTranslate;
+    const cardWidth = getCardWidth();
+    const gap = getGap();
+
+    // Determine if swipe was significant enough
+    if (movedBy < -(cardWidth / 4) && currentIndex < maxIndex) {
+      currentIndex++;
+    } else if (movedBy > cardWidth / 4 && currentIndex > 0) {
+      currentIndex--;
+    }
+
+    // Reset to proper position
+    const offset = -(currentIndex * (cardWidth + gap));
+    prevTranslate = offset;
+    currentTranslate = offset;
+
+    updateCarousel();
+  }
+
+  function getPositionX(event: MouseEvent | TouchEvent): number {
+    return event instanceof MouseEvent ? event.pageX : event.touches[0].clientX;
+  }
+
+  function animation() {
+    if (isDragging) {
+      track.style.transform = `translateX(${currentTranslate}px)`;
+      requestAnimationFrame(animation);
+    }
+  }
+
+  // Set initial cursor style
+  track.style.cursor = 'grab';
+
+  // Prevent context menu on long press
+  track.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
   });
 
-  track.addEventListener('mouseleave', () => {
-    autoScrollInterval = setInterval(() => {
-      if (currentIndex < maxIndex) {
-        currentIndex++;
-      } else {
-        currentIndex = 0;
-      }
-      updateCarousel();
-    }, 5000);
+  // Prevent text selection while dragging
+  track.addEventListener('selectstart', (e) => {
+    if (isDragging) e.preventDefault();
   });
 }

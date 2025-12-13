@@ -5,11 +5,11 @@ import mainImage from '@/images/grand-parent-learning-use-digital-divice.png';
 import blueCursor from '@/images/icons/blue-cursor.png';
 ---
 
-<section class="bg-deep px-4 py-16 lg:px-8 lg:py-24">
+<section class="bg-deep px-4 py-10 lg:px-8 lg:py-24">
   <div
-    class="bg container mx-auto border-b-5 border-l-5 border-white lg:border-r-5 lg:border-b-5 lg:border-l-0"
+    class="bg container mx-auto h-full border-b-5 border-l-5 border-white lg:border-r-5 lg:border-b-5 lg:border-l-0"
   >
-    <div class="bg-dark grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+    <div class="bg-dark grid grid-cols-1 items-center lg:h-188 lg:grid-cols-2">
       <!-- Left Column: Image -->
       <div class="relative h-full w-full">
         <!-- Main image container -->
@@ -21,20 +21,31 @@ import blueCursor from '@/images/icons/blue-cursor.png';
             loading="lazy"
           />
         </div>
+
+        <!-- Blue Cursor Icon -->
+        <div class="absolute top-165 -right-7 z-50 hidden lg:block">
+          <Image
+            src={blueCursor}
+            alt="Blue Cursor Icon"
+            class="h-12 w-12 object-contain"
+            width={48}
+            height={48}
+          />
+        </div>
       </div>
 
       <!-- Right Column: Content -->
-      <div class="relative space-y-8 p-2">
+      <div class="relative h-full w-full space-y-8 px-4 py-8 lg:p-10 lg:pl-20">
         <!-- Decorative Wave Object Background -->
         <Image
           src={objectWave}
           alt="object wave decoration"
-          width={500}
+          width={2000}
           class="absolute inset-0 z-0 h-full w-full object-cover"
         />
 
         <!-- Blue Cursor Icon -->
-        <div class="absolute top-[-70px] right-0 z-10 md:hidden">
+        <div class="absolute -top-6 right-3 z-50 lg:hidden">
           <Image
             src={blueCursor}
             alt="Blue Cursor Icon"
@@ -45,19 +56,19 @@ import blueCursor from '@/images/icons/blue-cursor.png';
         </div>
 
         <div class="relative z-10 space-y-6">
-          <h2 class="text-3xl font-bold text-white lg:text-4xl xl:text-5xl">
+          <h2 class="text-3xl font-bold text-white lg:text-5xl xl:text-6xl">
             Empowering Businesses Through Technology
           </h2>
 
-          <div class="font-supporting space-y-4 text-gray-300">
-            <p class="text-base lg:text-lg">
+          <div class="font-supporting max-w-114 space-y-4 text-gray-300">
+            <p class="text-base lg:text-xl">
               Dar.Dev LLC specializes in delivering tailored software solutions
               for small and medium-sized businesses. With proven experience in
               retail, wholesale, 3PL, and warehouse operations, we understand
               the unique challenges you face.
             </p>
 
-            <p class="text-base lg:text-lg">
+            <p class="text-base lg:text-xl">
               We combine innovative technology with personalized service and
               competitive pricing to help businesses streamline their operations
               and reach their full potential..
@@ -69,12 +80,12 @@ import blueCursor from '@/images/icons/blue-cursor.png';
         <div class="relative z-10 grid grid-cols-1 gap-8 pt-8 md:grid-cols-3">
           <div class="space-y-2">
             <div
-              class="text-accent font-headline text-4xl font-bold lg:text-5xl"
+              class="text-accent font-headline text-5xl font-bold lg:text-6xl"
             >
               50+
             </div>
             <div
-              class="font-supporting text-sm tracking-wider text-gray-300 uppercase"
+              class="font-supporting text-xl tracking-wider text-gray-300 uppercase"
             >
               Projects
             </div>
@@ -82,12 +93,12 @@ import blueCursor from '@/images/icons/blue-cursor.png';
 
           <div class="space-y-2">
             <div
-              class="text-accent font-headline text-4xl font-bold lg:text-5xl"
+              class="text-accent font-headline text-5xl font-bold lg:text-6xl"
             >
               5+
             </div>
             <div
-              class="font-supporting text-sm tracking-wider text-gray-300 uppercase"
+              class="font-supporting text-xl tracking-wider text-gray-300 uppercase"
             >
               Years
             </div>
@@ -95,12 +106,12 @@ import blueCursor from '@/images/icons/blue-cursor.png';
 
           <div class="space-y-2">
             <div
-              class="text-accent font-headline text-4xl font-bold lg:text-5xl"
+              class="text-accent font-headline text-5xl font-bold lg:text-6xl"
             >
               100%
             </div>
             <div
-              class="font-supporting text-sm tracking-wider text-gray-300 uppercase"
+              class="font-supporting text-xl tracking-wider text-gray-300 uppercase"
             >
               Satisfaction
             </div>
