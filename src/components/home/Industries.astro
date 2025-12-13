@@ -39,7 +39,10 @@ const industries: CollectionEntry<'industries'>[] = (
       <div class="flex flex-wrap justify-center gap-4 xl:hidden">
         {
           industries.map((industry, index) => (
-            <div class="flex h-[140px] w-[calc(50%-0.5rem)] flex-col items-center justify-center border border-white text-center">
+            <a
+              href={`/industries/${industry.id}`}
+              class="flex h-[140px] w-[calc(50%-0.5rem)] flex-col items-center justify-center border border-white text-center transition-colors hover:bg-white/10"
+            >
               <div class="mb-3">
                 <Image
                   src={industry.data.icon}
@@ -50,7 +53,7 @@ const industries: CollectionEntry<'industries'>[] = (
                 />
               </div>
               <p class="text-sm font-medium text-white">{industry.data.name}</p>
-            </div>
+            </a>
           ))
         }
       </div>
@@ -59,8 +62,9 @@ const industries: CollectionEntry<'industries'>[] = (
       <div class="relative hidden min-h-[600px] w-full xl:block">
         {
           industries.map((industry, index) => (
-            <div
-              class={`absolute flex h-[200px] w-[200px] flex-col items-center justify-center border border-white text-center ${industry.data.position}`}
+            <a
+              href={`/industries/${industry.id}`}
+              class={`absolute flex h-[200px] w-[200px] flex-col items-center justify-center border border-white text-center transition-colors hover:bg-white/10 ${industry.data.position}`}
             >
               <div class="mb-5">
                 <Image
@@ -74,7 +78,7 @@ const industries: CollectionEntry<'industries'>[] = (
               <p class="text-base font-medium text-white">
                 {industry.data.name}
               </p>
-            </div>
+            </a>
           ))
         }
       </div>
