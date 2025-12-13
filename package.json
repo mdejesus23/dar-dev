@@ -4,9 +4,18 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "optimize": "npm run optimize:analyze && npm run optimize:detect && npm run optimize:preloads",
+    "optimize:analyze": "python3 astro-optimizer/scripts/analyze.py .",
+    "optimize:detect": "python3 astro-optimizer/scripts/detect_js_patterns.py .",
+    "optimize:preloads": "python3 astro-optimizer/scripts/generate_preloads.py .",
+    "optimize:apply": "python3 astro-optimizer/scripts/apply_optimizations.py .",
+    "optimize:apply:risky": "python3 astro-optimizer/scripts/apply_optimizations.py . --include-risky"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.12",
